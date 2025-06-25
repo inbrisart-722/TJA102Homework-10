@@ -1,6 +1,6 @@
 package hw5.hero;
 
-public class ArrowMan extends Hw5_6_StrategyHero{
+public class ArrowMan extends Hero{
 	public ArrowMan() {
 		super();
 	}

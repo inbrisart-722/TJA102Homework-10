@@ -1,6 +1,6 @@
 package hw5.hero;
 
-public class SwordMan extends Hw5_6_StrategyHero{
+public class SwordMan extends Hero{
 	public SwordMan() {
 		super();
 	}
