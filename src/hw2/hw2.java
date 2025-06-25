@@ -1,4 +1,4 @@
-package hw1;
+package hw2;
 
 // 要記得把課堂上巢狀迴圈的99乘法表拿進來
 public class hw2 {

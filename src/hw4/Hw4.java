@@ -117,6 +117,7 @@ public class Hw4 {
 		
 		// 直到滿了幾個有效輸入才結束 counter 設定
 		int counter = 0;
+		System.out.println("請輸入年月日：YYYY MM DD");
 		while (counter < arrInput1.length) {
 			System.out.println("請輸入第 " + (counter + 1) + " 個整數");
 			

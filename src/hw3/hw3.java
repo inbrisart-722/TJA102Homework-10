@@ -60,7 +60,7 @@ public class Hw3 {
 	}
 
 	public static void guessNumber() {
-		// 2-2. variable declartion
+		// 2-2. variable declaration
 		Scanner sc2 = new Scanner(System.in);
 		int answer = (int) (Math.random() * 10);
 		int userGuess = -1; // 如果在使用前只有宣告但沒賦值（if條件不算）就會報錯
