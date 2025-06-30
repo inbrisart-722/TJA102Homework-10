@@ -4,10 +4,14 @@ import java.util.Scanner;
 
 public class CalTest {
 	public static void main(String[] args) {
+		// create instance for calling instance method later
+		
 		// user input
 		Scanner sc = new Scanner(System.in); 
-		// create array for the user input
+		
+		// create array for the user input + create finalAnswer variable
 		int[] answers = new int[2];
+		int finalAnswer;
 		
 		// while loop until successfully create a new Calculator
 		int counter = 0;
@@ -27,7 +31,7 @@ public class CalTest {
 			
 			if(counter == 2) {
 				try {
-					Calculator calc = new Calculator(answers[0], answers[1]);
+					finalAnswer = Calculator.powerXY(answers[0], answers[1]);
 					break;
 				} catch(CalException e) {
 					System.out.println(e.getMessage());
@@ -37,5 +41,9 @@ public class CalTest {
 		}
 		// release the usage of resources (???)
 		sc.close();
+		
+		// print finalAnswer
+		System.out.print(answers[0] + "的" + answers[1] + "次方等於");
+		System.out.println(finalAnswer);
 	}
 }
