@@ -9,14 +9,12 @@ public class hw7_2 {
 	public static void main(String[] args) throws IOException{
 		File destFile = new File("/Users/inbrisart/desktop/TJA102_Workspace/testFile/Data.txt");
 		
-		FileOutputStream fos = new FileOutputStream(destFile, true);
+		FileOutputStream fos = new FileOutputStream(destFile, false);
 		PrintStream ps = new PrintStream(fos);
 		
-		int[] random = new int[10];
-		for(int el : random) {
+		for(int i = 0 ; i < 10 ; i++) {
 			int ran = (int)(Math.random() * 1000) + 1;
-			el = ran;
-			ps.println(el);
+			ps.println(ran);
 		}
 		
 		ps.close();
