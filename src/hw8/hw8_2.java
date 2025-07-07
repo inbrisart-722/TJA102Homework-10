@@ -1,5 +1,11 @@
 package hw8;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 import java.util.TreeSet;
 
@@ -93,6 +99,13 @@ class Train implements Comparable<Train> {
 		if(this.number < other.number) return 1;
 		return 0;
 	}
+
+	@Override
+	public String toString() {
+		return "Train [number=" + number + ", type=" + type + ", start=" + start + ", dest=" + dest + ", price=" + price
+				+ "]";
+	}
+	
 }
 
 public class hw8_2 {
@@ -113,7 +126,6 @@ public class hw8_2 {
 //		ArrayList<Train> al = new ArrayList<>();
 //		PriorityQueue<Train> pq = new PriorityQueue<>();
 //		LinkedList<Train> ll = new LinkedList<>();
-//		HashSet<Train> hs = new HashSet<>();
 //		TreeMap<Integer, Train> tm = new TreeMap<>();
 //		HashMap<Integer, Train> hm = new HashMap<>();
 
@@ -124,19 +136,35 @@ public class hw8_2 {
 		}
 //		// 1-1. treeset for-each
 //		for(Train t: tse) {
-//			System.out.println(t.getNumber());
+//			System.out.println(t);
 //		}
 //		// 1-2. treeset iterator
-//		Iterator<Train> itts = tse.iterator();
-//		while(itts.hasNext()) {
-//			System.out.println(itts.next().getNumber());
-//		}
-		// 1-3. treeset toArray + for loop
-		Train[] tArr = tse.toArray(new Train[0]);
-		for(int i = 0 ; i < tArr.length ; i ++) {
-			System.out.println(tArr[i].getNumber());
+		Iterator<Train> itts = tse.iterator();
+		while(itts.hasNext()) {
+			System.out.println(itts.next());
 		}
-	
+		// 1-3. treeset toArray + for loop
+//		Train[] tArr = tse.toArray(new Train[0]);
+//		for(int i = 0 ; i < tArr.length ; i ++) {
+//			System.out.println(tArr[i]);
+//		}
 		
+		System.out.println("------------------------------------------------------------------");
+		
+		// 2. hashSet to ArrayList
+		HashSet<Train> hs = new HashSet<>();
+		for(int i = 0 ; i < ts.length ; i++) {
+			hs.add(ts[i]);
+		}
+		// 2-1. 轉法1
+		ArrayList<Train> al = new ArrayList<>(hs);
+		al.sort(null);
+		al.forEach((t) -> System.out.println(t));
+		System.out.println("------------------------------------------------------------------");
+		// 2-2. 轉法2 （很婉轉）（還順便把 Comparator 反過來做 Comparable）（很亂沒整理）
+		Train[] tsArr = hs.toArray(new Train[0]);
+		List<Train> tsArrToList = Arrays.asList(tsArr); // 回傳一個很像 ArrayList 的類別物件
+		Collections.sort(tsArrToList, (t1, t2) -> t1.getNumber() - t2.getNumber());
+		for(Train t : tsArr) System.out.println(t);
 	}
 }

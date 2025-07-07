@@ -31,7 +31,7 @@ public class hw8_1 {
 //		while(it.hasNext()) {
 //			Object temp = it.next();
 //			System.out.println(temp);
-//			if(temp instanceof Number) it.remove();
+//			if(!(temp instanceof Number)) it.remove();
 //		}
 //		System.out.println(list);
 		
@@ -39,7 +39,7 @@ public class hw8_1 {
 //		for(int i = list.size() - 1 ; i >= 0 ; i--) {
 //			Object temp = list.get(i);
 //			System.out.println(temp);
-//			if(temp instanceof Number) list.remove(i);
+//			if(!(temp instanceof Number)) list.remove(i);
 //		}
 //		System.out.println(list);
 		
@@ -47,18 +47,18 @@ public class hw8_1 {
 //		ArrayList toRemove = new ArrayList();
 //		for(Object el : list) {
 //			System.out.println(el);
-//			if(el instanceof Number) toRemove.add(el);
+//			if(!(el instanceof Number)) toRemove.add(el);
 //		}
 //		list.removeAll(toRemove);
 //		System.out.println(list);
 		
 		// +碼：forEach ver.
-		ArrayList toRemove = new ArrayList();
-		list.forEach((el) -> {
-			System.out.println(el);
-			if(el instanceof Number) toRemove.add(el);
-		});
-		list.removeAll(toRemove);
-		System.out.println(list);
+//		ArrayList toRemove = new ArrayList();
+//		list.forEach((el) -> {
+//			System.out.println(el);
+//			if(!(el instanceof Number)) toRemove.add(el);
+//		});
+//		list.removeAll(toRemove);
+//		System.out.println(list);
 	}
 }
