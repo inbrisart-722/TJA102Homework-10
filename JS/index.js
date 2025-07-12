@@ -130,24 +130,31 @@ $(document).on("click", "button.btn_update", function () {
 // 3. 第一個的待辦事項，「往上」按鈕按了要沒反應；最後一個的待辦事項，「往下」按鈕按了要沒反應。
 
 function changeOrder() {
+  //   if ($(this).is("button.btn_up")) {
+  //     if ($(this).closest("li").is(":first-child")) return;
+  //     let prevList = $(this).closest("li").prev();
+  //     let curList = $(this).closest("li");
+  //     let prevListCloned = prevList.clone();
+  //     let curListCloned = curList.clone();
+  //     prevList.replaceWith(curListCloned);
+  //     curList.replaceWith(prevListCloned);
+  //   } else {
+  //     if ($(this).closest("li").is(":last-child")) return;
+  //     let nextList = $(this).closest("li").next();
+  //     let curList = $(this).closest("li");
+  //     let nextListCloned = nextList.clone();
+  //     let curListCloned = curList.clone();
+  //     nextList.replaceWith(curListCloned);
+  //     curList.replaceWith(nextListCloned);
+  //   }
+  let $li = $(this).closest("li");
+
   if ($(this).is("button.btn_up")) {
-    if ($(this).closest("li").is(":first-child")) return;
-
-    let prevList = $(this).closest("li").prev();
-    let curList = $(this).closest("li");
-    let prevListCloned = prevList.clone();
-    let curListCloned = curList.clone();
-    prevList.replaceWith(curListCloned);
-    curList.replaceWith(prevListCloned);
+    if ($li.is(":first-child")) return;
+    $li.prev().before($li);
   } else {
-    if ($(this).closest("li").is(":last-child")) return;
-
-    let nextList = $(this).closest("li").next();
-    let curList = $(this).closest("li");
-    let nextListCloned = nextList.clone();
-    let curListCloned = curList.clone();
-    nextList.replaceWith(curListCloned);
-    curList.replaceWith(nextListCloned);
+    if ($li.is(":last-child")) return;
+    $li.next().after($li);
   }
 }
 $(document).on("click", "button.btn_up", changeOrder);
